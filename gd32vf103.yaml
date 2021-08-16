@@ -1,0 +1,41 @@
+---
+name: gd32v
+variants:
+  - name: gd32vf103
+    memory_map:
+      - Nvm:
+          range:
+            start: 0
+            end: 8192
+          is_boot_memory: false
+      - Ram:
+          range:
+            start: 65536
+            end: 131072
+          is_boot_memory: true
+    flash_algorithms:
+      - gd32vf103-flashloader
+flash_algorithms:
+  gd32vf103-flashloader:
+    name: gd32vf103-flashloader
+    description: GD32VF103 128 KB internal flash
+    default: true
+    instructions: tyUCQAlGkMnIyYhJE2UFBBOGBQEIwshFBYl1/bclAkAjqAUAyEURiRHlyEUTdgUBAUUBxlFFyMUFRYKANxUCQAxBk+UVAAzBDEGJifXdNxUCQExB8ZkTBkUADMJMQbGJ9f03FQJADEE3BgD/fRbxjQzBTEE3xsLfPQbxjTcGKCATBgZA0Y1MwQxBNwYAAdGNDMG3BQACEEFtjnXeNxUCQExB8ZmT5SUAEwZFAAzCoUVQQTGK4x62/jclAkAMSZP1BQiBzbcFZ0WThTUSTMERBbeV782ThbWaDMEBRYKAAUe3JwJAhUbUw5P2xf8zCNYAhcljBwYDgygGAP0VswanACOgFgHUR4WK9f7UR5GKhUiR5tRHEQbBigUH+dpGhYKANyUCQCMiBQABRYKANyUCQJMFAAgMyQFFgoAAAAAAAAA=
+    pc_init: 60
+    pc_uninit: 300
+    pc_program_page: 222
+    pc_erase_sector: 0
+    pc_erase_all: ~
+    data_section_offset: 316
+    flash_properties:
+      address_range:
+        start: 134217728
+        end: 134348800
+      page_size: 16
+      erased_byte_value: 255
+      program_page_timeout: 100
+      erase_sector_timeout: 6000
+      sectors:
+        - size: 1024
+          address: 0
+core: riscv
