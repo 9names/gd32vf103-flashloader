@@ -38,3 +38,7 @@ was built in release mode, and `target-gen` is installed:
 
 The resulting target description file can be found in `gd32vf103.yml`. The flash algorithm will
 already be populated, the remaining entries have to be filled in manually.
+
+Alternatively, you may run the regen script which will build and run target-gen for you
+
+    ./regen.sh
