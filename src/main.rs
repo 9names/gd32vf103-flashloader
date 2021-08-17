@@ -126,6 +126,7 @@ pub extern "C" fn ProgramPage(adr: u32, sz: u32, buf: *const u8) -> i32 {
         // If there's a programming error or write-protect error
         if fmc.stat0.read().pgerr().bit_is_set() || fmc.stat0.read().wperr().bit_is_set() {
             // Lock flash
+            fmc.key0.write(|w| unsafe { w.bits(0) });
             return 1;
         }
     }
