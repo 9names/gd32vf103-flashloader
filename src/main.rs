@@ -106,8 +106,8 @@ pub extern "C" fn Init(_adr: u32, _clk: u32, _fnc: u32) -> i32 {
 #[inline(never)]
 pub extern "C" fn ProgramPage(adr: u32, sz: u32, buf: *const u8) -> i32 {
     let fmc = unsafe { &(*FMC::ptr()) };
-    // Unlock flash
-    fmc.key0.write(|w| unsafe { w.bits(1) });
+    // Set page write
+    fmc.ctl0.write_with_zero(|w| w.pg().set_bit());
     // Should we assume usize programming?
     // It's what the C code did, its fast and may be required, but oh-so-unsafe...
     let adr = adr as usize;
@@ -118,7 +118,8 @@ pub extern "C" fn ProgramPage(adr: u32, sz: u32, buf: *const u8) -> i32 {
     // Trying to avoid the provenance debate on destination by constructing pointers from integers
     let src_slice = unsafe { slice::from_raw_parts(buf_usize, sz_usize) };
     for (offset, item) in src_slice.iter().enumerate().take(sz) {
-        let dst = (adr + offset) as *mut usize;
+        let dst = (adr + offset * 4) as *mut usize;
+
         unsafe { dst.write_volatile(*item) };
         while fmc.stat0.read().busy().bit_is_set() {
             // TODO: feed watchdog
@@ -130,8 +131,7 @@ pub extern "C" fn ProgramPage(adr: u32, sz: u32, buf: *const u8) -> i32 {
             return 1;
         }
     }
-    // Lock flash
-    fmc.key0.write(|w| unsafe { w.bits(0) });
+
     0
 }
 
