@@ -5,13 +5,13 @@ variants:
     memory_map:
       - Nvm:
           range:
-            start: 0x08000000
-            end: 0x08020000
+            start: 134217728
+            end: 134348800
           is_boot_memory: false
       - Ram:
           range:
-            start: 0x20000000
-            end: 0x20008000
+            start: 536870912
+            end: 536903680
           is_boot_memory: true
     flash_algorithms:
       - gd32vf103-flashloader
@@ -20,13 +20,13 @@ flash_algorithms:
     name: gd32vf103-flashloader
     description: GD32VF103 128 KB internal flash
     default: true
-    instructions: tyUCQAlGkMnIyYhJE2UFBBOGBQEIwshFBYl1/bclAkAjqAUAyEURiRHlyEUTdgUBAUUBxlFFyMUFRYKANxUCQAxBk+UVAAzBDEGJifXdNxUCQExB8ZkTBkUADMJMQbGJ9f03FQJADEE3BgD/fRbxjQzBTEE3xsLfPQbxjTcGKCATBgZA0Y1MwQxBNwYAAdGNDMG3BQACEEFtjnXeNxUCQExB8ZmT5SUAEwZFAAzCoUVQQTGK4x62/jclAkAMSZP1BQiZybcFZ0WThTUSTMG3le/Nk4W1mkzBAUWCgAFHtycCQIVG1MOT9sX/MwjWAIXNYwsGA4MoBgD9FbMGpwAjoBYB1EeFivX+1EeRioVIkebURxEGwYoFB/naNyUCQCMiBQBGhYKAgUg3JQJAIyIFAEaFgoA3JQJAkwUACAzJAUWCgAAAAAAAAA==
+    instructions: tyUCQAlGkMnIyYhJE2UFBBOGBQEIwshFBYl1/bclAkAjqAUAyEURiRHlyEUTdgUBAUUBxlFFyMUFRYKANxUCQAxBk+UVAAzBDEGJifXdNxUCQExB8ZkTBkUADMJMQbGJ9f03FQJADEE3BgD/fRbxjQzBTEE3xsLfPQbxjTcGKCATBgZA0Y1MwQxBNwYAAdGNDMG3BQACEEFtjnXeNxUCQExB8ZmT5SUAEwZFAAzCoUVQQTGK4x62/jclAkAMSZP1BQiZybcFZ0WThTUSTMG3le/Nk4W1mkzBAUWCgIFGNycCQIVHHMuT98X/Mwj2AIXNYwsGA4MoBgD9FZOXJgCqlyOgFwFcR4WL9f9cR5GLkedcRxEGwYuFBvnbNyUCQCMiBQAFRYKAAUWCgDclAkCTBQAIDMkBRYKAAAAAAA==
     pc_init: 60
-    pc_uninit: 308
+    pc_uninit: 298
     pc_program_page: 220
     pc_erase_sector: 0
     pc_erase_all: ~
-    data_section_offset: 324
+    data_section_offset: 312
     flash_properties:
       address_range:
         start: 134217728
