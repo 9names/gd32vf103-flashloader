@@ -38,4 +38,4 @@ flash_algorithms:
       sectors:
         - size: 1024
           address: 0
-core: riscv
+core: Riscv
