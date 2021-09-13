@@ -1,7 +1,7 @@
 ---
 name: gd32v
 variants:
-  - name: gd32vf103
+  - name: gd32vf103cbt69
     memory_map:
       - Nvm:
           range:
